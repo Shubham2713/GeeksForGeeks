@@ -1,3 +1,38 @@
+class Solution
+{
+    public:
+    void rearrangeEvenOdd(Node *head)
+    {
+       // Your Code here
+       Node*odd=head;
+       Node *even=head->next;
+       
+       Node*evenFirst=even;
+       
+       while(1)
+       {
+           if(odd==NULL || even==NULL || even->next==NULL)
+           {
+               odd->next=evenFirst;
+               break;
+           }
+           
+           odd->next=even->next;
+           odd=even->next;
+           
+           if(odd->next==NULL)
+           {
+               even->next=NULL;
+               odd->next=evenFirst;
+               break;
+           }
+           
+           even->next=odd->next;
+           even=odd->next;
+       }
+    }
+};
+
 
 
 #include<vector>
