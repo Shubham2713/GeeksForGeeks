@@ -1,3 +1,52 @@
+
+
+#include<vector>
+
+class Solution
+{
+    public:
+    void rearrangeEvenOdd(Node *head)
+    {
+        vector<Node *> odd;
+        vector<Node *> even;
+        Node *curr=head;
+        
+        while(curr!=NULL)
+        {
+            odd.push_back(curr);
+            if(curr->next!=NULL)
+            {
+                curr=curr->next;
+                even.push_back(curr);
+                
+            }
+            curr=curr->next;
+        }
+        int i=0,j=0;
+
+        head=odd[0];
+        Node *temp=head;
+        i++;
+        while(i<odd.size())
+        {
+            temp->next=odd[i];
+            i++;
+            temp=temp->next;
+        }
+        while(j<even.size())
+        {
+            temp->next=even[j];
+            j++;
+            temp=temp->next;
+        }
+        temp->next=NULL;
+       // Your Code here
+    }
+};
+
+
+
+
 #include <vector>
 
 class Solution
